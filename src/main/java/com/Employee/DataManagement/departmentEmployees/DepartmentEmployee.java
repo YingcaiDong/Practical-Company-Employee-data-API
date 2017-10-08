@@ -5,18 +5,14 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.Employee.DataManagement.departments.Department;
+import com.Employee.DataManagement.employees.Employee;
 
 @Entity
 @Table(name="dept_emp")
 public class DepartmentEmployee {
-	
-	@Id
-	@Column(name="emp_no", nullable=false)
-	private Integer empNo;
 	
 	@EmbeddedId
 	private DeptEmpEmbdKey deeKey;
@@ -29,28 +25,13 @@ public class DepartmentEmployee {
 
 	public DepartmentEmployee(Integer emp_no, String deptNo, Date fromDate, Date toDate) {
 		super();
-		this.empNo = emp_no;
-		this.deeKey = new DeptEmpEmbdKey(new Department(deptNo, null));
+		this.deeKey = new DeptEmpEmbdKey(new Department(deptNo, null), new Employee(emp_no, null, null, null, null, null));
 		this.fromDate = fromDate;
 		this.toDate = toDate;
 	}
 
 	protected DepartmentEmployee() {
 		super();
-	}
-
-	/**
-	 * @return the empNo
-	 */
-	public Integer getEmpNo() {
-		return empNo;
-	}
-
-	/**
-	 * @param empNo the empNo to set
-	 */
-	public void setEmpNo(Integer empNo) {
-		this.empNo = empNo;
 	}
 
 	/**

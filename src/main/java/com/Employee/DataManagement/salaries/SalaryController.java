@@ -48,7 +48,7 @@ public class SalaryController {
 	@RequestMapping(method=RequestMethod.POST, value="")
 	public void addSalary(@RequestBody Salary salary, @PathVariable("emp_no") Integer empNo) {
 		salary.setEmbeddedKeyId(new EmbeddedKeyId(salary.getEmbeddedKeyId().getFromeDate(), new Employee(empNo, null, null, null, null, null)));
-		salaryService.addSalary(salary);;
+		salaryService.addSalary(salary);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, value="/from_date_{from_date}")

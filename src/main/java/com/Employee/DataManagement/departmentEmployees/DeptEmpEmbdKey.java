@@ -7,6 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.Employee.DataManagement.departments.Department;
+import com.Employee.DataManagement.employees.Employee;
 
 @Embeddable
 public class DeptEmpEmbdKey implements Serializable {
@@ -20,9 +21,13 @@ public class DeptEmpEmbdKey implements Serializable {
 	@JoinColumn(name="dept_no", referencedColumnName="dept_no")
 	private Department department;
 
-	public DeptEmpEmbdKey(Department department) {
+	@JoinColumn(name="emp_no", referencedColumnName="emp_no")
+	private Employee employee;
+	
+	public DeptEmpEmbdKey(Department department, Employee employee) {
 		super();
 		this.department = department;
+		this.employee = employee;
 	}
 
 	protected DeptEmpEmbdKey() {
@@ -42,6 +47,18 @@ public class DeptEmpEmbdKey implements Serializable {
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
-	
-	
+
+	/**
+	 * @return the employee
+	 */
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	/**
+	 * @param employee the employee to set
+	 */
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
 }
