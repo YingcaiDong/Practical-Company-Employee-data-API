@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import com.Employee.DataManagement.departmentEmployees.DepartmentEmployee;
+import com.Employee.DataManagement.departmentEmployees.DeptEmpEmbdKey;
 
 @Entity
 @javax.persistence.Table(name="employees")
@@ -29,9 +33,6 @@ public class Employee {
 	@Column(nullable = false)
 	private Date hire_date;
 	
-//	@OneToMany
-//	@JoinColumn(name="emp_no", referencedColumnName="emp_no", nullable=false)
-//	private List<Salary> salaries;
 	
 	public Employee(Integer emp_no, Date birth_date, String first_name, String last_name, genderENU gender, Date hire_date) {
 		this.empNo = emp_no;
