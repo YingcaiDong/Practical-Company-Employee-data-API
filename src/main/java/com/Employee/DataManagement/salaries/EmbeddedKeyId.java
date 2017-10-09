@@ -18,15 +18,15 @@ public class EmbeddedKeyId implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "from_date")
-	private Date fromeDate;
+	private Date fromDate;
 	 
 	@ManyToOne
 	@JoinColumn(name="emp_no", referencedColumnName="emp_no")
 	private Employee employee;
 
-	public EmbeddedKeyId(Date fromeDate, Employee employee) {
+	public EmbeddedKeyId(Date fromDate, Employee employee) {
 		super();
-		this.fromeDate = fromeDate;
+		this.fromDate = fromDate;
 		this.employee = employee;
 	}
 
@@ -35,11 +35,11 @@ public class EmbeddedKeyId implements Serializable {
 	}
 
 	public Date getFromeDate() {
-		return fromeDate;
+		return fromDate;
 	}
 
 	public void setFromeDate(Date fromeDate) {
-		this.fromeDate = fromeDate;
+		this.fromDate = fromeDate;
 	}
 
 	public Employee getEmployee() {
