@@ -14,8 +14,8 @@ public class SalaryService {
 	@Autowired
 	private SalaryRepository salaryRepository;
 	
-	public Salary getSalariesByFromDate(Date _from) {
-		return salaryRepository.findByEmbeddedKeyIdFromDate(_from);
+	public List<Salary> getSalariesByFromDate(Date _from, Integer empNo) {
+		return salaryRepository.findByEmbeddedKeyIdFromDateAndEmbeddedKeyIdEmployeeEmpNo(_from, empNo);
 	}
 
 	public List<Salary> getSalariesByToDate(Date _end) {
