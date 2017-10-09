@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 
 @Transactional
 public interface TitleRepository extends CrudRepository<Title, EmbeddedKey> {
-	public Title findByEmbeddedKeyEmployeeEmpNo(Integer emp_no);
+	public List<Title> findByEmbeddedKeyEmployeeEmpNo(Integer emp_no);
 	public List<Title> findByEmbeddedKeyFromDate(Date from_date);
 	public List<Title> findByEmbeddedKeyTitle(String title);
 	

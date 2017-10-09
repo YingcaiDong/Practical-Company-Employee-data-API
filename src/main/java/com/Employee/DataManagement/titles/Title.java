@@ -18,12 +18,13 @@ public class Title {
 	@Column(name="to_date")
 	private Date toDate;
 
-	protected Title(Integer empNo, String title, Date fromDate, Date toDate) {
+	public Title(Integer empNo, String title, Date fromDate, Date toDate) {
 		super();
 		this.embeddedKey = new EmbeddedKey(new Employee(empNo, null, null, null, null, null), title, fromDate);
 		this.toDate = toDate;
 	}
-
+	protected Title() {}
+	
 	/**
 	 * @return the embeddedKey
 	 */

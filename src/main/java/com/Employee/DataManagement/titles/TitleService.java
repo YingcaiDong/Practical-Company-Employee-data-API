@@ -22,7 +22,7 @@ public class TitleService {
 		return titleRepository.findByEmbeddedKeyTitle(title);
 	}
 	
-	public Title getTitlesByEmpNo(Integer empNo) {
+	public List<Title> getTitlesByEmpNo(Integer empNo) {
 		return titleRepository.findByEmbeddedKeyEmployeeEmpNo(empNo);
 	}
 
