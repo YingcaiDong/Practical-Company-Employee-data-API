@@ -6,6 +6,7 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import com.Employee.DataManagement.employees.Employee;
 
@@ -16,6 +17,7 @@ public class EmbeddedKey implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@OneToOne
 	@JoinColumn(name = "emp_no", referencedColumnName="emp_no", nullable=false)
 	private Employee employee;
 	

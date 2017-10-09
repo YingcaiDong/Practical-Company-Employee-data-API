@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import com.Employee.DataManagement.departments.Department;
 import com.Employee.DataManagement.employees.Employee;
@@ -21,6 +22,7 @@ public class DeptEmpEmbdKey implements Serializable {
 	@JoinColumn(name="dept_no", referencedColumnName="dept_no")
 	private Department department;
 
+	@OneToOne
 	@JoinColumn(name="emp_no", referencedColumnName="emp_no")
 	private Employee employee;
 	
