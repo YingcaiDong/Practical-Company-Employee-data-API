@@ -17,17 +17,17 @@ public class DepartmentController {
 	@Autowired
 	private DepartmentService departmentService;
 	
-	@RequestMapping("/all")
+	@RequestMapping(method=RequestMethod.GET, value="/all")
 	public @ResponseBody List<Department> getAllDepartents() {
 		return departmentService.getAllDepartments();
 	}
 
-	@RequestMapping("/dept_no_{dept_no}")
+	@RequestMapping(method=RequestMethod.GET, value="/dept_no_{dept_no}")
 	public @ResponseBody Department getDepartmentByDeptNo(@PathVariable("dept_no") String deptNo) {
 		return departmentService.getDepartmentByDeptNo(deptNo);
 	}
 
-	@RequestMapping("/dept_name_{dept_name}")
+	@RequestMapping(method=RequestMethod.GET, value="/dept_name_{dept_name}")
 	public @ResponseBody Department getDepartmentByDeptName(@PathVariable("dept_name") String deptName) {
 		return departmentService.getDepartmentByDeptName(deptName);
 	}

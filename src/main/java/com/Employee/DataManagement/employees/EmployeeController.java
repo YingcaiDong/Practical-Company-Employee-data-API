@@ -18,14 +18,14 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 	
-	@RequestMapping(value="/range/{from}to{end}")
+	@RequestMapping(method=RequestMethod.GET, value="/range/{from}to{end}")
 	public @ResponseBody List<Employee> getRangeEmployees(@PathVariable("from") String from, @PathVariable("end") String end) {
 		Integer _from = Integer.parseInt(from);
 		Integer _end = Integer.parseInt(end);
 		return employeeService.getRangeEmployees(_from, _end);
 	}
 	
-	@RequestMapping("/id_{id}")
+	@RequestMapping(method=RequestMethod.GET, value="/id_{id}")
 	public @ResponseBody Employee getEmployee(@PathVariable String id) {
 		Integer intId = Integer.parseInt(id);
 		return employeeService.getEmployee(intId);

@@ -23,18 +23,18 @@ public class TitleController {
 	@Autowired
 	private TitleService titleService;
 	
-	@RequestMapping(value="employees/{emp_no}/titles")
+	@RequestMapping(method=RequestMethod.GET, value="employees/{emp_no}/titles")
 	public @ResponseBody Title getTitlesByEmp_no(@PathVariable("emp_no") @Valid String emp_no) {
 		Integer empNo = Integer.parseInt(emp_no);
 		return titleService.getTitlesByEmpNo(empNo);
 	}
 	
-	@RequestMapping(value="title/{title}")
+	@RequestMapping(method=RequestMethod.GET, value="title/{title}")
 	public @ResponseBody List<Title> getTitlesByTitle(@PathVariable("title") String title) {
 		return titleService.getTitles(title);
 	}
 	
-	@RequestMapping(value="title/{from_date}")
+	@RequestMapping(method=RequestMethod.GET, value="title/{from_date}")
 	public @ResponseBody List<Title> getTitlesByFromDate(@PathVariable("from_date") String fromDate) throws ParseException {
 		Date sqlDate = titleService.str2SDate(fromDate);
 		return titleService.getTitlesByFromDate(sqlDate);
