@@ -49,11 +49,11 @@ public class TitleController {
 		titleService.addTitle(title);
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, value="employees/{emp_no}/titles")
-	public void updateTitle(@RequestBody Title title, @PathVariable("emp_no") String empNo) {
+	@RequestMapping(method=RequestMethod.PUT, value="employees/{emp_no}/titles/{title}")
+	public void updateTitle(@RequestBody Title title, @PathVariable("emp_no") String empNo, @PathVariable("title") String _title) {
 		Integer _empNo = Integer.parseInt(empNo);
 		Employee employee = new Employee(_empNo, null, null, null, null, null);
-		title.setEmbeddedKey(new EmbeddedKey(employee, null, null));
+		title.setEmbeddedKey(new EmbeddedKey(employee, _title, null));
 		titleService.updateTitle(title);
 	}
 	
