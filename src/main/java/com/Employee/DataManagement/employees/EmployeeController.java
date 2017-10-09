@@ -25,7 +25,7 @@ public class EmployeeController {
 		return employeeService.getRangeEmployees(_from, _end);
 	}
 	
-	@RequestMapping("/{id}")
+	@RequestMapping("/id_{id}")
 	public @ResponseBody Employee getEmployee(@PathVariable String id) {
 		Integer intId = Integer.parseInt(id);
 		return employeeService.getEmployee(intId);
@@ -36,13 +36,13 @@ public class EmployeeController {
 		employeeService.addEmployee(employee);
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, value="/{id}")
+	@RequestMapping(method=RequestMethod.PUT, value="/id_{id}")
 	public void updateEmployee(@RequestBody Employee employee, @PathVariable String id) {
 		Integer intId = Integer.parseInt(id);
 		employeeService.updateEmployee(employee, intId);
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/{id}")
+	@RequestMapping(method=RequestMethod.DELETE, value="/id_{id}")
 	public void deleteEmployee(@PathVariable String id) {
 		Integer intId = Integer.parseInt(id);
 		employeeService.deleteEmployee(intId);

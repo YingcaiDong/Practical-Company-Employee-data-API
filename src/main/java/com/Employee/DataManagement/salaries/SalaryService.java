@@ -15,7 +15,7 @@ public class SalaryService {
 	private SalaryRepository salaryRepository;
 	
 	public Salary getSalariesByFromDate(Date _from) {
-		return salaryRepository.findByEmbeddedKeyIdFromeDate(_from);
+		return salaryRepository.findByEmbeddedKeyIdFromDate(_from);
 	}
 
 	public List<Salary> getSalariesByToDate(Date _end) {
@@ -39,7 +39,7 @@ public class SalaryService {
 	}
 	
 	public void deleteSalariesByFromDate(Date date) {
-		salaryRepository.deleteByEmbeddedKeyIdFromeDate(date);
+		salaryRepository.deleteByEmbeddedKeyIdFromDate(date);
 	}
 	
 	// string date format should be like 1992-02-13 (yyyy-MM-dd)
