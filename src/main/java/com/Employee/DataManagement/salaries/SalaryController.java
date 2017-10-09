@@ -24,14 +24,13 @@ public class SalaryController {
 	@Autowired
 	private SalaryService salaryService;
 	
-	@RequestMapping(value="")
+	@RequestMapping(method=RequestMethod.GET, value="")
 	public @ResponseBody List<Salary> getSalariesByEmp_no(@PathVariable @Valid String emp_no) {
 		Integer empNo = Integer.parseInt(emp_no);
-//		System.out.println("emp no: "+empNo);
 		return salaryService.getSalariesByEmp_no(empNo);
 	}
 	
-	@RequestMapping(value="/from_date_{from_date}")
+	@RequestMapping(method=RequestMethod.GET, value="/from_date_{from_date}")
 	// string date format should be like 1992-02-13 (yyyy-MM-dd)
 	public @ResponseBody List<Salary> getSalariesByFromDate(@PathVariable("emp_no") String empNo, @PathVariable("from_date") String fromDate) throws ParseException {
 		java.sql.Date sqlDate = salaryService.str2SDate(fromDate);
@@ -40,7 +39,7 @@ public class SalaryController {
 	}
 	
 	
-	@RequestMapping(value="/to_date_{to_date}")
+	@RequestMapping(method=RequestMethod.GET, value="/to_date_{to_date}")
 	public @ResponseBody List<Salary> getSalariesByToDate(@PathVariable("to_date") String toDate) throws ParseException {
 		java.sql.Date sqlDate = salaryService.str2SDate(toDate);
 		return salaryService.getSalariesByToDate(sqlDate);

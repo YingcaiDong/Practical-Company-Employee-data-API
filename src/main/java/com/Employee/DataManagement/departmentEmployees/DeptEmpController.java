@@ -22,24 +22,24 @@ public class DeptEmpController {
 	@Autowired
 	private DeptEmpService deptEmpService;
 	
-	@RequestMapping("/find/empno_{emp_no}")
+	@RequestMapping(method=RequestMethod.GET, value="/find/empno_{emp_no}")
 	public @ResponseBody DepartmentEmployee findDepartmentEmployeesByEmpNo(@PathVariable("emp_no") String empNo) {
 		Integer empNoInteger = Integer.parseInt(empNo);
 		return deptEmpService.getDepartmentEmployeesByEmpNo(empNoInteger);
 	}
 	
-	@RequestMapping("/find/deptno_{dept_no}")
+	@RequestMapping(method=RequestMethod.GET, value="/find/deptno_{dept_no}")
 	public @ResponseBody List<DepartmentEmployee> findDepartmentEmployeesByDeptNo(@PathVariable("dept_no")  String deptNo) {
 		return deptEmpService.getDepartmentEmployeesByDeptNo(deptNo);
 	}
 	
-	@RequestMapping("/find/fdate_{from_date}")
+	@RequestMapping(method=RequestMethod.GET, value="/find/fdate_{from_date}")
 	public @ResponseBody List<DepartmentEmployee> findDepartmentEmployeesByFromDate(@PathVariable("from_date") String fromDate) throws ParseException {
 		Date sqlDate = deptEmpService.str2SDate(fromDate);
 		return deptEmpService.getDepartmentEmployeesByFromDate(sqlDate);
 	}
 	
-	@RequestMapping("/find/tdate_{to_date}")
+	@RequestMapping(method=RequestMethod.GET, value="/find/tdate_{to_date}")
 	public @ResponseBody List<DepartmentEmployee> finDepartmentEmployeesByToDate(@PathVariable("to_date") String toDate) throws ParseException {
 		Date sqlDate = deptEmpService.str2SDate(toDate);
 		return deptEmpService.getDepartmentEmployeesByToDate(sqlDate);
