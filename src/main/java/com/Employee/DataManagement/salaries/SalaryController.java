@@ -33,9 +33,10 @@ public class SalaryController {
 	
 	@RequestMapping(value="/from_date_{from_date}")
 	// string date format should be like 1992-02-13 (yyyy-MM-dd)
-	public @ResponseBody Salary getSalariesByFromDate(@PathVariable("from_date") String fromDate) throws ParseException {
+	public @ResponseBody List<Salary> getSalariesByFromDate(@PathVariable("emp_no") String empNo, @PathVariable("from_date") String fromDate) throws ParseException {
 		java.sql.Date sqlDate = salaryService.str2SDate(fromDate);
-		return salaryService.getSalariesByFromDate(sqlDate);
+		Integer empNoInteger = Integer.parseInt(empNo);
+		return salaryService.getSalariesByFromDate(sqlDate, empNoInteger);
 	}
 	
 	

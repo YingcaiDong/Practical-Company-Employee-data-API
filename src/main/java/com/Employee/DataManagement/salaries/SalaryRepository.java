@@ -10,7 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 @Transactional
 public interface SalaryRepository extends CrudRepository<Salary, EmbeddedKeyId> {
 	public List<Salary> findByEmbeddedKeyIdEmployeeEmpNo(Integer emp_no);
-	public Salary findByEmbeddedKeyIdFromDate(Date from_date);
+	public List<Salary> findByEmbeddedKeyIdFromDateAndEmbeddedKeyIdEmployeeEmpNo(Date from_date, Integer empNo);
 	public List<Salary> findByToDate(Date to_date);
 	
 	public void deleteByEmbeddedKeyIdEmployeeEmpNo(Integer emp_no);
