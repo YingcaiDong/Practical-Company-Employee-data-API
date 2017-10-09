@@ -40,11 +40,13 @@ public class TitleController {
 		return titleService.getTitlesByFromDate(sqlDate);
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, value="employees/{emp_no}/titles")
-	public void addTitle(@RequestBody Title title, @PathVariable("emp_no") String empNo) {
-		Integer empNoInteger = Integer.parseInt(empNo);
-		Employee employee = new Employee(empNoInteger, null, null, null, null, null);
-		EmbeddedKey embeddedKey = new EmbeddedKey(employee, null, null);
+	@RequestMapping(method=RequestMethod.POST, value="employees/titles")
+	public void addTitle(@RequestBody Title title) {
+//		Integer empNoInteger = Integer.parseInt(empNo);
+		Employee employee = new Employee(title.getEmbeddedKey().getEmployee().getEmp_no(), null, null, null, null, null);
+		String titleString = title.getEmbeddedKey().getTitle();
+		Date sqlDate = title.getEmbeddedKey().getFromDate();
+		EmbeddedKey embeddedKey = new EmbeddedKey(employee, titleString, sqlDate);
 		title.setEmbeddedKey(embeddedKey);
 		titleService.addTitle(title);
 	}

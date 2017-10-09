@@ -1,5 +1,6 @@
 package com.Employee.DataManagement.titles;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -11,7 +12,12 @@ import com.Employee.DataManagement.employees.Employee;
 
 @Entity
 @Table(name="titles")
-public class Title {
+public class Title implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@EmbeddedId
 	private EmbeddedKey embeddedKey;
 	
