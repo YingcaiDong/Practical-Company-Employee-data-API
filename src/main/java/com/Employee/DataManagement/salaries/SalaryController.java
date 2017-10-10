@@ -48,14 +48,14 @@ public class SalaryController {
 	@RequestMapping(method=RequestMethod.POST, value="")
 	public void addSalary(@RequestBody Salary salary, @PathVariable("emp_no") String empNo) {
 		Integer empNoInteger = Integer.parseInt(empNo);
-		salary.setEmbeddedKeyId(new EmbeddedKeyId(salary.getEmbeddedKeyId().getFromeDate(), new Employee(empNoInteger, null, null, null, null, null)));
+		salary.setEmbeddedKeyId(new EmbeddedKeyId(salary.getEmbeddedKeyId().getFromDate(), new Employee(empNoInteger, null, null, null, null, null)));
 		salaryService.addSalary(salary);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, value="/from_date_{from_date}")
 	public void updateSalary(@RequestBody Salary salary, @PathVariable("emp_no") String empNo, @PathVariable("frome_date") String fromDate) throws ParseException {
 		Integer _empNo = Integer.parseInt(empNo);
-		salary.setEmbeddedKeyId(new EmbeddedKeyId(salary.getEmbeddedKeyId().getFromeDate(), new Employee(_empNo, null, null, null, null, null)));
+		salary.setEmbeddedKeyId(new EmbeddedKeyId(salary.getEmbeddedKeyId().getFromDate(), new Employee(_empNo, null, null, null, null, null)));
 		salaryService.updateSalary(salary);
 	}
 	

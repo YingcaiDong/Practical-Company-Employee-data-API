@@ -36,11 +36,11 @@ public class EmbeddedKeyId implements Serializable {
 		super();
 	}
 
-	public Date getFromeDate() {
+	public Date getFromDate() {
 		return fromDate;
 	}
 
-	public void setFromeDate(Date fromDate) {
+	public void setFromDate(Date fromDate) {
 		this.fromDate = fromDate;
 	}
 
