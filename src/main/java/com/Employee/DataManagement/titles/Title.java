@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import com.Employee.DataManagement.employees.Employee;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="titles")
@@ -22,6 +23,7 @@ public class Title implements Serializable {
 	private EmbeddedKey embeddedKey;
 	
 	@Column(name="to_date")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="EST")
 	private Date toDate;
 
 	public Title(Integer empNo, String title, Date fromDate, Date toDate) {
@@ -48,7 +50,7 @@ public class Title implements Serializable {
 	/**
 	 * @return the toDate
 	 */
-	public Date getToDate() {
+	public java.util.Date getToDate() {
 		return toDate;
 	}
 

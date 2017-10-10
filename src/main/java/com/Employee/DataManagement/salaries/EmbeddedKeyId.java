@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.Employee.DataManagement.employees.Employee;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Embeddable
 public class EmbeddedKeyId implements Serializable {
@@ -18,6 +19,7 @@ public class EmbeddedKeyId implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "from_date")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="EST")
 	private Date fromDate;
 	 
 	@ManyToOne
