@@ -3,8 +3,11 @@ package com.Employee.DataManagement.departmentEmployees;
 import java.sql.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.repository.CrudRepository;
 
+@Transactional
 public interface DeptEmpRepository extends CrudRepository<DepartmentEmployee, String> {
 	public DepartmentEmployee findByDeeKeyEmployeeEmpNo(Integer empNo);
 	public List<DepartmentEmployee> findByDeeKeyDepartmentDeptNo(String deptNo);

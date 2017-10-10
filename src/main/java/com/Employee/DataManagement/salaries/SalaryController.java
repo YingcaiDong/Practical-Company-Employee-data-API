@@ -60,8 +60,8 @@ public class SalaryController {
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/from_date_{from_date}")
-	public void deleteSalayByFromDate(@PathVariable("from_date") String fromeDate, @PathVariable("emp_no") Integer empNo) throws ParseException {
-		java.sql.Date sqlDate = salaryService.str2SDate(fromeDate);
+	public void deleteSalayByFromDate(@PathVariable("from_date") String fromDate, @PathVariable("emp_no") Integer empNo) throws ParseException {
+		java.sql.Date sqlDate = salaryService.str2SDate(fromDate);
 		salaryService.deleteSalariesByFromDate(sqlDate);
 	}
 	

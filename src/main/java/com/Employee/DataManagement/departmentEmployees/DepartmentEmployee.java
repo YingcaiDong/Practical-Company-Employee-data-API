@@ -19,6 +19,7 @@ public class DepartmentEmployee {
 	private DeptEmpEmbdKey deeKey;
 	
 	@Column(name="from_date", nullable=true)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="EST")
 	private Date fromDate;
 	
 	@Column(name="to_date", nullable=true)

@@ -12,12 +12,11 @@ import com.Employee.DataManagement.employees.Employee;
 
 @Embeddable
 public class DeptEmpEmbdKey implements Serializable {
-	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 219671876657855539L;
+
 	@ManyToOne
 	@JoinColumn(name="dept_no", referencedColumnName="dept_no")
 	private Department department;

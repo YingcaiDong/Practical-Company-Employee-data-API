@@ -16,7 +16,7 @@ public class EmbeddedKeyId implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -7387776295438195037L;
 
 	@Column(name = "from_date")
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="EST")
@@ -40,8 +40,8 @@ public class EmbeddedKeyId implements Serializable {
 		return fromDate;
 	}
 
-	public void setFromeDate(Date fromeDate) {
-		this.fromDate = fromeDate;
+	public void setFromeDate(Date fromDate) {
+		this.fromDate = fromDate;
 	}
 
 	public Employee getEmployee() {

@@ -16,7 +16,7 @@ public class EmbeddedKey implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -3932787714653257528L;
 
 	@OneToOne
 	@JoinColumn(name = "emp_no", referencedColumnName="emp_no", nullable=false)
