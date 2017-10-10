@@ -7,6 +7,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
 import com.Employee.DataManagement.employees.Employee;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @javax.persistence.Table(name="salaries")
@@ -18,6 +19,7 @@ public class Salary {
 	private Integer salary;
 	
 	@Column(name = "to_date", nullable = false)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="EST")
 	private Date toDate;
 	
 	public Salary(Integer emp_no, Integer salary, Date from_date, Date to_date) {

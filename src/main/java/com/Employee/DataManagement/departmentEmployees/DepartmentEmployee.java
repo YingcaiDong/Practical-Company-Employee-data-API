@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 import com.Employee.DataManagement.departments.Department;
 import com.Employee.DataManagement.employees.Employee;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="dept_emp")
@@ -21,6 +22,7 @@ public class DepartmentEmployee {
 	private Date fromDate;
 	
 	@Column(name="to_date", nullable=true)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="EST")
 	private Date toDate;
 
 	public DepartmentEmployee(Integer emp_no, String deptNo, Date fromDate, Date toDate) {

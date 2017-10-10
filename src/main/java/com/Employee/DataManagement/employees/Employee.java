@@ -8,6 +8,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @javax.persistence.Table(name="employees")
 public class Employee {
@@ -17,16 +19,23 @@ public class Employee {
 	@Id
 	@Column(name="emp_no", nullable = false)
 	private Integer empNo;
+	
 	@Column(nullable = false)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="EST")
 	private Date birth_date;
+	
 	@Column(nullable = false)
 	private String first_name;
+	
 	@Column(nullable = false)
 	private String last_name;
+	
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private genderENU gender;
+	
 	@Column(nullable = false)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="EST")
 	private Date hire_date;
 	
 	public Employee(Integer emp_no, Date birth_date, String first_name, String last_name, genderENU gender, Date hire_date) {
