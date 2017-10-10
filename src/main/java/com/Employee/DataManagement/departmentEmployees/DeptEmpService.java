@@ -15,7 +15,7 @@ public class DeptEmpService {
 	@Autowired
 	private DeptEmpRepository deptEmpRepository;
 	
-	public DepartmentEmployee getDepartmentEmployeesByEmpNo(Integer empNo) {
+	public List<DepartmentEmployee> getDepartmentEmployeesByEmpNo(Integer empNo) {
 		return deptEmpRepository.findByDeeKeyEmployeeEmpNo(empNo);
 	}
 	

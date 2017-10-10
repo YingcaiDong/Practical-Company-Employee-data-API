@@ -23,7 +23,7 @@ public class DeptEmpController {
 	private DeptEmpService deptEmpService;
 	
 	@RequestMapping(method=RequestMethod.GET, value="/find/empno_{emp_no}")
-	public @ResponseBody DepartmentEmployee findDepartmentEmployeesByEmpNo(@PathVariable("emp_no") String empNo) {
+	public @ResponseBody List<DepartmentEmployee> findDepartmentEmployeesByEmpNo(@PathVariable("emp_no") String empNo) {
 		Integer empNoInteger = Integer.parseInt(empNo);
 		return deptEmpService.getDepartmentEmployeesByEmpNo(empNoInteger);
 	}

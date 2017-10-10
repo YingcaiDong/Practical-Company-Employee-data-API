@@ -1,4 +1,4 @@
-package com.Employee.DataManagement.departmentEmployees;
+package com.Employee.DataManagement.departmentManagers;
 
 import java.io.Serializable;
 
@@ -10,12 +10,13 @@ import com.Employee.DataManagement.departments.Department;
 import com.Employee.DataManagement.employees.Employee;
 
 @Embeddable
-public class DeptEmpEmbdKey implements Serializable {
+public class DeptMangrKey implements Serializable {
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 219671876657855539L;
-
+	private static final long serialVersionUID = 6292021607574943674L;
+	
 	@ManyToOne
 	@JoinColumn(name="dept_no", referencedColumnName="dept_no")
 	private Department department;
@@ -23,14 +24,14 @@ public class DeptEmpEmbdKey implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="emp_no", referencedColumnName="emp_no")
 	private Employee employee;
-	
-	public DeptEmpEmbdKey(Department department, Employee employee) {
+
+	public DeptMangrKey(Department department, Employee employee) {
 		super();
 		this.department = department;
 		this.employee = employee;
 	}
 
-	protected DeptEmpEmbdKey() {
+	protected DeptMangrKey() {
 		super();
 	}
 
@@ -61,4 +62,5 @@ public class DeptEmpEmbdKey implements Serializable {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
+	
 }

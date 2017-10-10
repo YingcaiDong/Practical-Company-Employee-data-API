@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 
 @Transactional
 public interface DeptEmpRepository extends CrudRepository<DepartmentEmployee, String> {
-	public DepartmentEmployee findByDeeKeyEmployeeEmpNo(Integer empNo);
+	public List<DepartmentEmployee> findByDeeKeyEmployeeEmpNo(Integer empNo);
 	public List<DepartmentEmployee> findByDeeKeyDepartmentDeptNo(String deptNo);
 	public List<DepartmentEmployee> findByFromDate(Date fromDate);
 	public List<DepartmentEmployee> findByToDate(Date toDate);
