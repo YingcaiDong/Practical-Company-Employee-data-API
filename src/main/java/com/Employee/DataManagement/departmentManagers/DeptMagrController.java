@@ -78,18 +78,18 @@ public class DeptMagrController {
 		deptMagrService.addDepartmentManager(departmentManager);
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/delete/")
+	@RequestMapping(method=RequestMethod.DELETE, value="/delete/dept_{dept_no}")
 	public void deleteDepartmentManagerByDeptNo(@PathVariable("dept_no") String deptNo) {
 		deptMagrService.deleteDepartmentManagerByDeptNo(deptNo);
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/delete/")
+	@RequestMapping(method=RequestMethod.DELETE, value="/delete/emp_{emp_no}")
 	public void deleteDepartmentManagerByEmpNo(@PathVariable("emp_no") String empNo) {
 		Integer empNoInteger = Integer.parseInt(empNo);
 		deptMagrService.deleteDepartmentManagerByEmpNo(empNoInteger);
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/delete/")
+	@RequestMapping(method=RequestMethod.DELETE, value="/delete/dept_{dept_no}_emp_{emp_no}")
 	public void deleteDepartmentManagerByEmpDept(
 			@PathVariable("dept_no") String deptNo, 
 			@PathVariable("emp_no") String empNo) {
