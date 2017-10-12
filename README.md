@@ -38,3 +38,4 @@ Find the file end with .jar
 
 ### View and check all the APIs
 Open Chrom or Safari, go to http://localhost:8080//swagger-ui.html#/ and you will be able to see all the APIs.
+<img width="1164" alt="swagger" src="https://user-images.githubusercontent.com/22902303/31514047-645ef46a-af5e-11e7-9a40-ca1d98322488.png">
