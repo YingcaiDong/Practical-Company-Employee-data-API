@@ -31,6 +31,7 @@ Then within same project directory
 $ cd target/
 $ ls
 ```
+<img width="637" alt="screen shot 2017-10-12 at 3 11 44 pm" src="https://user-images.githubusercontent.com/22902303/31514599-20c1f4ee-af60-11e7-91e5-d46a91cefcc5.png">
 
 Find the file end with .jar
 
