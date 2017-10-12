@@ -5,8 +5,11 @@ com/Employee/DataManagement/titles/TitleService.class
 com/Employee/DataManagement/salaries/SalaryController.class
 com/Employee/DataManagement/titles/TitleRepository.class
 com/Employee/DataManagement/salaries/Salary.class
+com/Employee/DataManagement/departmentManagers/DepartmentManager.class
 com/Employee/DataManagement/SwaggerConfig.class
 com/Employee/DataManagement/departments/Department.class
+com/Employee/DataManagement/departmentManagers/DeptMagrRepository.class
+com/Employee/DataManagement/departmentManagers/DeptMagrController.class
 com/Employee/DataManagement/departments/DepartmentService.class
 com/Employee/DataManagement/departments/DepartmentRepository.class
 com/Employee/DataManagement/salaries/SalaryRepository.class
@@ -14,11 +17,13 @@ com/Employee/DataManagement/titles/TitleController.class
 com/Employee/DataManagement/salaries/SalaryService.class
 com/Employee/DataManagement/employees/Employee.class
 com/Employee/DataManagement/employees/Employee$genderENU.class
+com/Employee/DataManagement/departmentManagers/DeptMangrKey.class
 com/Employee/DataManagement/employees/EmployeeController.class
 com/Employee/DataManagement/departmentEmployees/DepartmentEmployee.class
 com/Employee/DataManagement/employees/EmployeeRepository.class
 com/Employee/DataManagement/PracticalCompanyEmployeeDataApiApplication.class
 com/Employee/DataManagement/titles/EmbeddedKey.class
+com/Employee/DataManagement/departmentManagers/DeptMagrService.class
 com/Employee/DataManagement/departmentEmployees/DeptEmpController.class
 com/Employee/DataManagement/employees/EmployeeService.class
 com/Employee/DataManagement/departmentEmployees/DeptEmpRepository.class
