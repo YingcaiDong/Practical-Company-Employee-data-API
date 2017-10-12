@@ -17,14 +17,6 @@ public class DeptMagrService {
 		return deptMagrRepository.findByDeptMangrKeyDepartmentDeptNo(deptNo);
 	}
 	
-	public List<DepartmentManager> getDepartmentManagersByEmpNo(Integer empNo) {
-		return deptMagrRepository.findByDeptMangrKeyEmployeeEmpNo(empNo);
-	}
-	
-	public List<DepartmentManager> getdepDepartmentManagersByEmpDept(Integer empNo, String deptNo) {
-		return deptMagrRepository.findByDeptMangrKeyEmployeeEmpNoAndDeptMangrKeyDepartmentDeptNo(empNo, deptNo);
-	}
-	
 	public void addDepartmentManager(DepartmentManager departmentManager) {
 		deptMagrRepository.save(departmentManager);
 	}
@@ -42,7 +34,7 @@ public class DeptMagrService {
 	}
 	
 	public void deleteDepartmentManagerByEmpDept(Integer empNo, String deptNo) {
-		deptMagrRepository.deleteByDeptMangrKeyEmployeeEmpNoAndDeptMangrKeyDepartmentDeptNo(empNo, deptNo);
+		deptMagrRepository.deleteByDeptMangrKey_Employee_EmpNoAndDeptMangrKey_Department_DeptNo(empNo, deptNo);
 	}
 	
 	// string date format should be like 1992-02-13 (yyyy-MM-dd)

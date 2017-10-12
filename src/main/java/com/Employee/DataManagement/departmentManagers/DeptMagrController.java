@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,21 +25,6 @@ public class DeptMagrController {
 	public @ResponseBody List<DepartmentManager> getDepartmentManagersByDeptNo(
 			@PathVariable("dept_no") String deptNo) {
 		return deptMagrService.getDepartmentManagersByDeptNo(deptNo);
-	}
-	
-	@RequestMapping(method=RequestMethod.GET, value="/find/emp_{emp_no}")
-	public @ResponseBody List<DepartmentManager> getDepartmentManagersByEmpNo(
-			@PathVariable("emp_no") String empNo) {
-		Integer empNoInteger = Integer.parseInt(empNo);
-		return deptMagrService.getDepartmentManagersByEmpNo(empNoInteger);
-	}
-	
-	@RequestMapping(method=RequestMethod.GET, value="/find/dept_{dept_no}_emp_{emp_no}")
-	public @ResponseBody List<DepartmentManager> getdepDepartmentManagersByEmpDept(
-			@PathVariable("dept_no") String deptNo, 
-			@PathVariable("emp_no") String empNo) {
-		Integer empNoInteger = Integer.parseInt(empNo);
-		return deptMagrService.getdepDepartmentManagersByEmpDept(empNoInteger, deptNo);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/add")
@@ -84,16 +70,18 @@ public class DeptMagrController {
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/delete/emp_{emp_no}")
-	public void deleteDepartmentManagerByEmpNo(@PathVariable("emp_no") String empNo) {
+	public @ResponseBody String deleteDepartmentManagerByEmpNo(@PathVariable("emp_no") String empNo) {
 		Integer empNoInteger = Integer.parseInt(empNo);
 		deptMagrService.deleteDepartmentManagerByEmpNo(empNoInteger);
+		return "delet complete";
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/delete/dept_{dept_no}_emp_{emp_no}")
-	public void deleteDepartmentManagerByEmpDept(
-			@PathVariable("dept_no") String deptNo, 
-			@PathVariable("emp_no") String empNo) {
+	@RequestMapping(value="/delete", params={"emp_no", "dept_no"}, method=RequestMethod.DELETE)
+	public @ResponseBody String deleteDepartmentManagerByEmpDept(
+			@RequestParam("dept_no") String deptNo, 
+			@RequestParam("emp_no") String empNo) {
 		Integer empNoInteger = Integer.parseInt(empNo);
 		deptMagrService.deleteDepartmentManagerByEmpDept(empNoInteger, deptNo);
+		return "delete complete";
 	}
 }

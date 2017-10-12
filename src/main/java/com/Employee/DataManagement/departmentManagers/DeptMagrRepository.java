@@ -9,12 +9,9 @@ import org.springframework.data.repository.CrudRepository;
 @Transactional
 public interface DeptMagrRepository extends CrudRepository<DepartmentManager, DeptMangrKey>{
 	public List<DepartmentManager> findByDeptMangrKeyDepartmentDeptNo(String deptNo);
-	public List<DepartmentManager> findByDeptMangrKeyEmployeeEmpNo(Integer empNo);
-	public List<DepartmentManager> findByDeptMangrKeyEmployeeEmpNoAndDeptMangrKeyDepartmentDeptNo(
-			Integer empNo, String deptNo);
 	
 	public void deleteByDeptMangrKeyDepartmentDeptNo(String deptNo);
 	public void deleteByDeptMangrKeyEmployeeEmpNo(Integer empNo);
-	public void deleteByDeptMangrKeyEmployeeEmpNoAndDeptMangrKeyDepartmentDeptNo(
-			Integer empNo, String deptNo);
+	
+	public void deleteByDeptMangrKey_Employee_EmpNoAndDeptMangrKey_Department_DeptNo(Integer empNo, String deptNo);
 }
