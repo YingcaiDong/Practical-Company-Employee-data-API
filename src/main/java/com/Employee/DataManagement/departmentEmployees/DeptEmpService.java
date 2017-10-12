@@ -53,6 +53,10 @@ public class DeptEmpService {
 		deptEmpRepository.deleteByDeeKeyEmployeeEmpNo(empNo);
 	}
 	
+	public void deleteEmployeeByDeptEmp(String deptNo, Integer empNo) {
+		deptEmpRepository.deleteByDeeKey_Department_DeptNoAndDeeKey_Employee_EmpNo(deptNo, empNo);
+	}
+	
 	// string date format should be like 1992-02-13 (yyyy-MM-dd)
 	public Date str2SDate(String strDate) throws ParseException {
 		SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd");

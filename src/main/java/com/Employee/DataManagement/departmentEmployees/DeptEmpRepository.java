@@ -16,4 +16,6 @@ public interface DeptEmpRepository extends CrudRepository<DepartmentEmployee, St
 	
 	public void deleteByDeeKeyEmployeeEmpNo(Integer empNo);
 	public void deleteByDeeKeyDepartmentDeptNo(String deptNo);
+	
+	public void deleteByDeeKey_Department_DeptNoAndDeeKey_Employee_EmpNo(String deptNo, Integer empNo);
 }

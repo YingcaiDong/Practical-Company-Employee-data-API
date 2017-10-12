@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -45,18 +46,20 @@ public class DeptEmpController {
 		return deptEmpService.getDepartmentEmployeesByToDate(sqlDate);
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, value="/add/empno_{emp_no}_deptno_{dept_no}")
-	public void addDepartmentEmployee(@RequestBody DepartmentEmployee departmentEmployee, @PathVariable("emp_no") String empNo, @PathVariable("dept_no") String deptNo) {
-		Integer empNoInteger = Integer.parseInt(empNo);
-		Department department = new Department(deptNo, null);
-		Employee employee = new Employee(empNoInteger, null, null, null, null, null);
+	@RequestMapping(method=RequestMethod.POST, value="/add")
+	public void addDepartmentEmployee(@RequestBody DepartmentEmployee departmentEmployee) {
+		Department department = new Department(departmentEmployee.getDeeKey().getDepartment().getDeptNo(), null);
+		Employee employee = new Employee(departmentEmployee.getDeeKey().getEmployee().getEmp_no(), null, null, null, null, null);
 		DeptEmpEmbdKey deptEmpEmbdKey = new DeptEmpEmbdKey(department, employee);
 		departmentEmployee.setDeeKey(deptEmpEmbdKey);
 		deptEmpService.addDepartmentEmployees(departmentEmployee);
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, value="/update/empno_{emp_no}_deptno_{dept_no}")
-	public void updateDepartmentEmployee(@RequestBody DepartmentEmployee departmentEmployee, @PathVariable("emp_no") String empNo, @PathVariable("dept_no") String deptNo) {
+	@RequestMapping(method=RequestMethod.PUT, value="/update", params={"emp_no", "dept_no"})
+	public void updateDepartmentEmployee(
+			@RequestBody DepartmentEmployee departmentEmployee,
+			@RequestParam("emp_no") String empNo,
+			@RequestParam("dept_no") String deptNo) {
 		Integer empNoInteger = Integer.parseInt(empNo);
 		Department department = new Department(deptNo, null);
 		Employee employee = new Employee(empNoInteger, null, null, null, null, null);
@@ -76,4 +79,11 @@ public class DeptEmpController {
 		deptEmpService.deleteEmployeeByEmpNo(empNoInteger);
 	}
 	
+	@RequestMapping(method=RequestMethod.DELETE, value="/delete", params={"dept_no", "emp_no"})
+	public void deleteEmployeeByDeptEmp(
+			@RequestParam("dept_no") String deptNo,
+			@RequestParam("emp_no") String empNo) {
+		Integer empNoInteger = Integer.parseInt(empNo);
+		deptEmpService.deleteEmployeeByDeptEmp(deptNo, empNoInteger);
+	}
 }
