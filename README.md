@@ -2,6 +2,19 @@
 The project's data is from MySQL Employee example (https://dev.mysql.com/doc/employee/en/).
 >The Employees sample database was developed by Patrick Crews and Giuseppe Maxia and provides a combination of a large base of data (approximately 160MB) spread over six separate tables and consisting of 4 million records in total. The structure is compatible with a wide range of storage engine types. Through an included data file, support for partitioned tables is also provided.
 
+### TL;DL
+There is a TL;DR version, just direct to
+
+`/workspace-sts-3.9.0.RELEASE/Practical-Company-Employee-data-api/target`
+
+Find the `Practical-Company-Employee-data-api-0.0.1-SNAPSHOT.jar` file.
+
+Run command
+
+`$ java -jar Practical-Company-Employee-data-api-0.0.1-SNAPSHOT.jar`
+
+Open this link in Chrom or Safari http://localhost:8080//swagger-ui.html#/
+
 ### Install the database to MySQL
 To install the database, I stronly recommend follow the official installation instruction (https://dev.mysql.com/doc/employee/en/employees-installation.html).
 
