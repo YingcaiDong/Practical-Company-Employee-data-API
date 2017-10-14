@@ -13,6 +13,7 @@ spring.datasource.username=root
 #spring.datasource.password=ThePassword
 ```
 If you are in this setting, then jump to **TL;DL**. Otherwise, please follow the **Applicaiton Properties** and the rest.
+> Note that **TL;DL** is only for user who don't want to modify the code. However, if you want to add more APIs or more features based on this project, please follow the second option (start from **Application Properties**) to change/add features and packge your own jar file.
 
 ---
 
