@@ -6,7 +6,7 @@ The project's data is from MySQL Employee example (https://dev.mysql.com/doc/emp
 To install the database, I stronly recommend follow the official installation instruction (https://dev.mysql.com/doc/employee/en/employees-installation.html).
 
 ### Two options
-1. I already generated a standalone jar file ready for you to run. However, the properties in this application is based on my database settings:
+I already generated a standalone jar file ready for you to run. However, the properties in this application is based on my database settings:
 ```
 spring.datasource.url=jdbc:mysql://localhost:3306/employees
 spring.datasource.username=root
